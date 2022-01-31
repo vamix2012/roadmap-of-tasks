@@ -1,0 +1,34 @@
+<mat-toolbar class="toolbar" [class.toolbarDark]="isDarkMode">
+
+  <select class="ticketsFilter" [class.ticketsFilterDark]="isDarkMode" matNativeControl required #clientValue
+    (change)="filterLabels($event)">
+    <option value="all">All</option>
+    <option value="frontend">Frontend</option>
+    <option value="backend">Backend</option>
+    <option value="security">Security</option>
+  </select>
+
+
+  <div class="weekSelector">
+    <button class="weekSelectorBtn" (click)="setWeekDate('-')">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <span>&nbsp; Calendar week: {{ calendarWeek }} &nbsp;</span>
+
+    <button class="weekSelectorBtn" (click)="setWeekDate('+')">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+
+  <div class="colorThemeSelector">
+    <mat-slide-toggle (change)="onChange($event)" color="accent">
+      Dark mode
+    </mat-slide-toggle>
+  </div>
+
+</mat-toolbar>
+<app-calendar [class.darkCalendarBg]="isDarkMode" [calendarWeek]="calendarWeek" [calendarWeekStart]="calendarWeekStart"
+  [startIndex]="startIndex" [isFrontend]="isFrontend" [isBackend]="isBackend" [isSecurity]="isSecurity"
+  [isDarkMode]="isDarkMode">
+</app-calendar>

@@ -1,0 +1,201 @@
+// This Class is shown only when all Labels are selected otherwise just .tableSmall is active
+
+
+.table {
+  height: calc(90% - 64px) !important;
+
+}
+
+.tableWrap {
+  width  : 100%;
+  height : 100%;
+  padding: 32px;
+}
+
+.tableWrapDark {
+  background-color: #303030;
+
+  th:first-child {
+    border-right: 1px solid white !important;
+  }
+}
+
+
+.tableSmall {
+  width          : calc(100% - 64px);
+  height         : calc(30% - 64px);
+  border-collapse: collapse;
+  z-index        : 0;
+
+  .firstRow {
+    height          : 50px;
+    background-color: #3f51b5;
+    color           : white;
+
+    th:first-child {
+      background: white;
+    }
+  }
+
+  .darkPrimary {
+    background-color: #e91e63;
+
+    th:not(:first-child) {
+      border: 1px solid white;
+    }
+
+    th:first-child {
+      background-color: #303030;
+    }
+  }
+
+  .darkBg {
+    background-color: #303030;
+
+    td:first-child,
+    th:first-child {
+      border-right: 1px solid white;
+    }
+
+    td:not(:first-child),
+    th:not(:first-child) {
+      border: 1px solid white;
+    }
+
+    td:first-child {
+      color: white;
+    }
+  }
+
+  .darkCard {
+    border          : 1px solid white;
+    color           : white;
+    background-color: #607d8b;
+
+    .notesId {
+      border: 1px solid white;
+    }
+
+  }
+
+
+  td:first-child,
+  th:first-child {
+    text-align  : center;
+    font-size   : 34px;
+    width       : 10%;
+    border      : hidden;
+    border-right: 1px solid black;
+  }
+
+  td:not(:first-child),
+  th:not(:first-child) {
+    border  : 1px solid black;
+    position: relative;
+  }
+}
+
+// Class for TaskCard design
+.taskCard {
+  width   : 85%;
+  height  : 80%;
+  position: relative;
+  border  : 1px solid black;
+  z-index : 1;
+
+  mat-card-title {
+    font-size    : 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  mat-card-content {
+    height     : 50px;
+    white-space: normal;
+    overflow   : hidden;
+
+  }
+
+  mat-card-footer {
+    position      : absolute;
+    bottom        : 32px;
+    left          : 32px;
+    display       : flex;
+    flex-direction: column;
+  }
+
+  &:hover {
+    background-color: rgb(241, 240, 240);
+    z-index         : 5;
+    transform       : scale(1.05) scaleX(1.1) translateX(15px);
+    transition      : transform 225ms ease-in-out;
+  }
+}
+
+// Used to wrap every TaskCard for a better alignment of the items
+.taskCardWrap {
+  width   : 16vw;
+  height  : 80%;
+  position: absolute;
+  top     : 0;
+  bottom  : 0;
+  left    : 0;
+  right   : 0;
+  margin  : 10px;
+
+  .notesId {
+    border       : 1px solid black;
+    padding      : 8px;
+    margin-right : 8px;
+    border-radius: 50%;
+    font-size    : 10px;
+  }
+}
+
+
+
+// Tooltip is not visible on screens largen then 1682px
+::ng-deep .card-tooltip {
+  visibility: hidden;
+}
+
+
+// to be applied on screen smaller than 1682px
+@media(max-width: 1682px) {
+
+
+  .rem-border {
+    border: none !important;
+  }
+
+
+  .taskCard {
+    width : 60%;
+    height: 80%;
+
+
+    mat-card-title {
+      font-size: 1.1rem;
+
+    }
+
+    mat-card-footer {
+      display: none;
+    }
+
+    .notesId {
+      border : none;
+      padding: 0;
+    }
+  }
+
+  .taskCardWrap {
+    margin: 5px
+  }
+
+  // Tooltip design to display on minimal design notes
+  ::ng-deep .card-tooltip {
+    font-size       : 24px;
+    visibility      : visible;
+    background-color: deeppink;
+  }
+}

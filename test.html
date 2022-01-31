@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function init() {
+      let numbers = [1, 2, 9, 6, 7, 7, 7, 9, 11, 13, 13, 15];
+      let filtered = [];
+
+      for (i = 1; i < numbers.length * 2; i++) {
+        filtered[i - 1] = [];
+        for (let number of numbers) {
+          if (number === i) filtered[i - 1].push(number);
+        }
+        // if (addedGaps[i - 1].length === 0) addedGaps[i - 1].push("gap");
+      }
+      console.log(filtered);
+
+
+
+    }
+
+
+  </script>
+</head>
+
+<body onload="init()">
+
+</body>
+
+</html>

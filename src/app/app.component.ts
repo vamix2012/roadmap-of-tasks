@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'roadmap';
+  isDarkmode: boolean=false;
+  toggleDarkMode(isDark: boolean){
+    this.isDarkmode = isDark;
+    console.log("isDarkModeFromParent:", this.isDarkmode);
+  }
 }
