@@ -3,7 +3,10 @@
 
 .table {
   height: calc(90% - 64px) !important;
+}
 
+.mobile {
+  visibility: none;
 }
 
 .tableWrap {
@@ -109,25 +112,41 @@
   }
 
   mat-card-content {
-    height     : 50px;
-    white-space: normal;
-    overflow   : hidden;
-
+    height       : 35px;
+    white-space  : normal;
+    overflow     : hidden;
+    margin-bottom: -5px;
   }
 
+  .dots {
+    display: none;
+  }
+
+
+
   mat-card-footer {
-    position      : absolute;
-    bottom        : 32px;
-    left          : 32px;
-    display       : flex;
-    flex-direction: column;
+    .footerLeft {
+      position      : absolute;
+      bottom        : 16px;
+      left          : 16px;
+      display       : flex;
+      flex-direction: column;
+    }
+
+    .footerRight {
+      position: absolute;
+      bottom  : 16px;
+      right   : 16px;
+
+    }
   }
 
   &:hover {
     background-color: rgb(241, 240, 240);
     z-index         : 5;
+    cursor          : pointer;
     transform       : scale(1.05) scaleX(1.1) translateX(15px);
-    transition      : transform 225ms ease-in-out;
+    transition      : transform 125ms ease-in-out;
   }
 }
 
@@ -179,13 +198,25 @@
     }
 
     mat-card-footer {
-      display: none;
+      .footerLeft {
+
+        display: none;
+      }
+
+      .footerRight {
+        font-size: 12px;
+      }
+
     }
 
     .notesId {
       border : none;
       padding: 0;
     }
+  }
+
+  .dots {
+    display: inline !important;
   }
 
   .taskCardWrap {
@@ -198,4 +229,68 @@
     visibility      : visible;
     background-color: deeppink;
   }
+}
+
+@media(max-width: 1000px) {
+  .tableWrap {
+    padding-left : 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .tableSmall {
+    width: 100%;
+
+    td:first-child {
+      font-size: 24px;
+      transform: rotate(-90deg);
+      padding  : 0;
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .tableWrap {
+    display: none;
+  }
+
+  .subHeaderDark {
+    background-color: #e91e63 !important;
+    border-top      : 1px solid white;
+    border-bottom   : 1px solid white;
+  }
+
+  .mobileDarkBg {
+
+    background-color: #303030;
+
+    div,
+    span {
+      color: white;
+    }
+  }
+
+
+  .mobile {
+    visibility: visible;
+    width     : 100vw;
+    height    : 100vh;
+    overflow  : scroll;
+
+
+    .matCardFooter {
+      display        : flex;
+      flex-direction : row;
+      justify-content: space-between;
+      width          : 100%;
+    }
+
+    .subHeader {
+      background-color: #3f51b5;
+      color           : white;
+      border-top      : 1px solid black;
+      border-bottom   : 1px solid black;
+    }
+
+  }
+
 }

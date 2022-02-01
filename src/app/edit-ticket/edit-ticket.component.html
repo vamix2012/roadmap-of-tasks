@@ -4,9 +4,10 @@
     <mat-label>Title</mat-label>
     <input [(ngModel)]='note.title' matInput placeholder="Enter title">
   </mat-form-field>
-  <mat-form-field appearance="fill">
+  <mat-form-field hintLabel="Max 250 characters" appearance="fill">
     <mat-label>Summary</mat-label>
-    <textarea maxlength="250" [(ngModel)]='note.summary' matInput></textarea>
+    <textarea rows="8" maxlength="250" [(ngModel)]='note.summary' matInput></textarea>
+    <mat-hint align="end">{{note.summary.length || 0}}/250</mat-hint>
   </mat-form-field>
 </div>
 <button mat-button color="primary" (click)="updateNote()">Save</button>

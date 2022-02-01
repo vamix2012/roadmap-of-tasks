@@ -27,3 +27,30 @@
 .ticketsFilterDark {
   background-color: #e91e63;
 }
+
+@media(max-width: 800px) {
+  .toolbar {
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
+  }
+
+  .weekSelector {
+    display: none;
+  }
+}
+
+// @media(max-width: 620px) {
+//   .toolbar {
+
+//     height: 150px;
+//   }
+// }
+
+@media(max-width: 372px) {
+  .toolbar {
+
+    height: 150px;
+  }
+}
