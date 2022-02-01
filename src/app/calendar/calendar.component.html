@@ -1,5 +1,6 @@
 <div class="tableWrap" [class.tableWrapDark]="isDarkMode">
   <table class="tableSmall" [class.table]="isFrontend && isBackend && isSecurity">
+    <!--Table Header Row-->
     <tr class="firstRow" [class.darkPrimary]="isDarkMode">
       <th></th>
       <th>{{ calendarWeekStart | date: "dd.MM" }}</th>
@@ -8,6 +9,7 @@
       <th>{{ (calendarWeekStart)+(oneDay*3) | date: "dd.MM" }}</th>
       <th>{{ (calendarWeekStart)+(oneDay*4) | date: "dd.MM" }}</th>
     </tr>
+    <!--Table Frontend Row-->
     <tr *ngIf="isFrontend" [class.darkBg]="isDarkMode">
       <td>{{labels[0]?.text}}</td>
       <td>
@@ -26,6 +28,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let note of filteredFrontend[startIndex + 1]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
@@ -42,6 +45,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let note of filteredFrontend[startIndex + 2]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
@@ -58,6 +62,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let note of filteredFrontend[startIndex + 3]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
@@ -74,6 +79,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let note of filteredFrontend[startIndex + 4]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
@@ -90,8 +96,11 @@
           </mat-card>
         </div>
       </td>
+
     </tr>
+    <!--Table Backend Row-->
     <tr *ngIf="isBackend" [class.darkBg]="isDarkMode">
+
       <td>{{labels[1]?.text}}</td>
       <td>
         <div class="taskCardWrap" *ngFor="let noteb of filteredBackend[startIndex]; let i = index"
@@ -109,6 +118,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let noteb of filteredBackend[startIndex+1]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((noteb.endDate/1000 - noteb.startDate/1000) / (3600 * 24) + 1))}"
@@ -125,6 +135,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let noteb of filteredBackend[startIndex+2]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((noteb.endDate/1000 - noteb.startDate/1000) / (3600 * 24) + 1))}"
@@ -141,6 +152,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let noteb of filteredBackend[startIndex+3]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((noteb.endDate/1000 - noteb.startDate/1000) / (3600 * 24) + 1))}"
@@ -157,6 +169,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let noteb of filteredBackend[startIndex+4]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((noteb.endDate/1000 - noteb.startDate/1000) / (3600 * 24) + 1))}"
@@ -173,7 +186,9 @@
           </mat-card>
         </div>
       </td>
+
     </tr>
+    <!--Table Security Row-->
     <tr *ngIf="isSecurity" [class.darkBg]="isDarkMode">
       <td>{{labels[2]?.text}}</td>
       <td>
@@ -192,6 +207,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let notes of filteredSecurity[startIndex+1]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((notes.endDate/1000 - notes.startDate/1000) / (3600 * 24) + 1))}"
@@ -208,6 +224,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let notes of filteredSecurity[startIndex+2]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((notes.endDate/1000 - notes.startDate/1000) / (3600 * 24) + 1))}"
@@ -224,6 +241,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let notes of filteredSecurity[startIndex+3]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((notes.endDate/1000 - notes.startDate/1000) / (3600 * 24) + 1))}"
@@ -240,6 +258,7 @@
           </mat-card>
         </div>
       </td>
+
       <td>
         <div class="taskCardWrap" *ngFor="let notes of filteredSecurity[startIndex+4]; let i = index"
           [ngStyle]="{'left.px': i*stackOffset, 'top.px': i*stackOffset, 'width.vw' : (16 * ((notes.endDate/1000 - notes.startDate/1000) / (3600 * 24) + 1))}"
@@ -256,7 +275,9 @@
           </mat-card>
         </div>
       </td>
+
     </tr>
+
   </table>
 
 </div>
