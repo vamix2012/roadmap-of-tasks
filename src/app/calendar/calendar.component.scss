@@ -240,11 +240,14 @@
   .tableSmall {
     width: 100%;
 
-    td:first-child {
-      font-size: 24px;
-      transform: rotate(-90deg);
-      padding  : 0;
+    td:first-child,
+    th:first-child {
+      display     : none;
+      // font-size: 24px;
+      // transform: rotate(-90deg);
+      // padding  : 0;
     }
+
   }
 }
 
