@@ -272,6 +272,9 @@
     }
   }
 
+  .empty {
+    display: none !important;
+  }
 
   .mobile {
     visibility: visible;
@@ -285,6 +288,8 @@
       flex-direction : row;
       justify-content: space-between;
       width          : 100%;
+      margin-top     : 16px;
+      margin-bottom  : 16px;
     }
 
     .subHeader {
@@ -292,6 +297,76 @@
       color           : white;
       border-top      : 1px solid black;
       border-bottom   : 1px solid black;
+      margin-bottom   : 16px;
+    }
+
+  }
+
+}
+
+@media(max-height: 820px) {
+  mat-card-footer {
+    .footerRight {
+      display: none;
+    }
+
+  }
+
+  .taskCard {
+
+    mat-card-content {
+      height: 18px;
+    }
+  }
+}
+
+@media(max-height: 620px) {
+  .tableWrap {
+    display: none;
+  }
+
+  .subHeaderDark {
+    background-color: #e91e63 !important;
+    border-top      : 1px solid white;
+    border-bottom   : 1px solid white;
+  }
+
+  .mobileDarkBg {
+
+    background-color: #303030;
+
+    div,
+    span {
+      color: white;
+    }
+  }
+
+  .empty {
+    display: none !important;
+  }
+
+  .mobile {
+    visibility: visible;
+    width     : 100vw;
+    height    : 100vh;
+    overflow  : scroll;
+
+
+    .matCardFooter {
+      display        : flex;
+      flex-direction : row;
+      justify-content: space-between;
+      width          : 100%;
+      margin-top     : 16px;
+      margin-bottom  : 16px;
+    }
+
+    .subHeader {
+      background-color: #3f51b5;
+      color           : white;
+      border-top      : 1px solid black;
+      border-bottom   : 1px solid black;
+      margin-bottom   : 16px;
     }
 
   }
