@@ -5,8 +5,12 @@
   height: calc(90% - 64px) !important;
 }
 
+.empty {
+  display: none !important;
+}
+
 .mobile {
-  visibility: none;
+  display: none;
 }
 
 .tableWrap {
@@ -100,18 +104,23 @@
 
 // Class for TaskCard design
 .taskCard {
-  width   : 85%;
+
   height  : 80%;
   position: relative;
   border  : 1px solid black;
   z-index : 1;
 
   mat-card-title {
-    font-size    : 1.2rem;
-    margin-bottom: 16px;
+    position : absolute;
+    top      : 5px;
+    left     : 5px;
+    font-size: 1.2rem;
   }
 
   mat-card-content {
+    position     : absolute;
+    top          : 50px;
+    left         : 5px;
     height       : 35px;
     white-space  : normal;
     overflow     : hidden;
@@ -127,16 +136,16 @@
   mat-card-footer {
     .footerLeft {
       position      : absolute;
-      bottom        : 16px;
-      left          : 16px;
+      bottom        : 3px;
+      left          : 5px;
       display       : flex;
       flex-direction: column;
     }
 
     .footerRight {
       position: absolute;
-      bottom  : 16px;
-      right   : 16px;
+      bottom  : 3px;
+      right   : 5px;
 
     }
   }
@@ -145,21 +154,21 @@
     background-color: rgb(241, 240, 240);
     z-index         : 5;
     cursor          : pointer;
-    transform       : scale(1.05) scaleX(1.1) translateX(15px);
+    transform       : scale(1.01) scaleX(1.01);
     transition      : transform 125ms ease-in-out;
   }
 }
 
 // Used to wrap every TaskCard for a better alignment of the items
 .taskCardWrap {
-  width   : 16vw;
+
   height  : 80%;
   position: absolute;
-  top     : 0;
-  bottom  : 0;
-  left    : 0;
-  right   : 0;
-  margin  : 10px;
+
+  top: 2px;
+
+  left  : 2px;
+  margin: 2px;
 
   .notesId {
     border       : 1px solid black;
@@ -178,8 +187,8 @@
 }
 
 
-// to be applied on screen smaller than 1682px
-@media(max-width: 1682px) {
+// to be applied on screen smaller than 1680px
+@media(max-width: 1680px) {
 
 
   .rem-border {
@@ -216,7 +225,10 @@
   }
 
   .dots {
-    display: inline !important;
+    display : inline !important;
+    position: absolute;
+    top     : 60px;
+    left    : 5px;
   }
 
   .taskCardWrap {
@@ -272,15 +284,16 @@
     }
   }
 
-  .empty {
-    display: none !important;
-  }
-
   .mobile {
-    visibility: visible;
-    width     : 100vw;
-    height    : 100vh;
-    overflow  : scroll;
+    display : block;
+    width   : 100vw;
+    height  : 100vh;
+    overflow: scroll;
+
+
+    mat-list {
+      margin-bottom: 50px;
+    }
 
 
     .matCardFooter {
@@ -305,19 +318,19 @@
 }
 
 @media(max-height: 820px) {
-  mat-card-footer {
-    .footerRight {
-      display: none;
-    }
+  // mat-card-footer {
+  //   .footerRight {
+  //     display: none;
+  //   }
 
-  }
+  // }
 
-  .taskCard {
+  // .taskCard {
 
-    mat-card-content {
-      height: 18px;
-    }
-  }
+  // mat-card-content {
+  //   height: 18px;
+  // }
+  // }
 }
 
 @media(max-height: 620px) {
