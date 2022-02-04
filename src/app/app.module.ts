@@ -10,17 +10,23 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 import { FormsModule } from '@angular/forms';
-
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, CalendarComponent, EditTicketComponent],
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    CalendarComponent,
+    EditTicketComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

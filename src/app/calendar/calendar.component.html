@@ -1,4 +1,5 @@
 <div class="tableWrap" [class.tableWrapDark]="isDarkMode">
+
   <table class="tableSmall" [class.table]="isFrontend && isBackend && isSecurity">
     <!-- Table Header Row -->
     <tr class="firstRow" [class.darkPrimary]="isDarkMode">
@@ -13,8 +14,8 @@
     <tr *ngIf="isFrontend" [class.darkBg]="isDarkMode">
       <td>{{labels[0]?.text}}</td>
       <td *ngFor="let item of [].constructor(5); let i = index ">
-        <div class="taskCardWrap" *ngFor="let note of mappedTasks[0].frontend[startIndex+i]; let j = index"
-          [ngStyle]="{'left.px': j*stackOffsetX, 'top.px': j*stackOffsetY, 'width.px' : ((cardWidth/ratio) * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
+        <div class="taskCardWrap" *ngFor="let note of mappedTasks.frontend[startIndex+i]; let j = index"
+          [ngStyle]="{'left.px': j*stackOffsetX, 'top.px': j*stackOffsetY,'height.px': cardHeight, 'width.px' : (cardWidth * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
           matTooltip={{note.summary}} matTooltipPosition="above" matTooltipClass="card-tooltip"
           [class.empty]="!note.labels.includes(1)">
           <mat-card class="taskCard" [class.darkCard]="isDarkMode" (click)="editNote(note)">
@@ -26,7 +27,7 @@
                 <span>Start date {{note.startDate | date: "dd.MM"}}</span>
                 <span>Duration {{ (note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1 }} Day<span
                     *ngIf="note.endDate-note.startDate > 86300">'s</span></span>
-              </span><span class="footerRight">{{labels[0].text}}</span>
+              </span><span class="footerRight">{{labels[0]?.text}}</span>
             </mat-card-footer>
           </mat-card>
         </div>
@@ -38,8 +39,8 @@
 
       <td>{{labels[1]?.text}}</td>
       <td *ngFor="let item of [].constructor(5); let i = index ">
-        <div class="taskCardWrap" *ngFor="let note of mappedTasks[0].backend[startIndex+i]; let j = index"
-          [ngStyle]="{'left.px': j*stackOffsetX, 'top.px': j*stackOffsetY, 'width.px' : ((cardWidth/ratio) * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
+        <div class="taskCardWrap" *ngFor="let note of mappedTasks.backend[startIndex+i]; let j = index"
+          [ngStyle]="{'left.px': j*stackOffsetX, 'top.px': j*stackOffsetY,'height.px': cardHeight, 'width.px' : (cardWidth * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
           matTooltip={{note.summary}} matTooltipPosition="above" matTooltipClass="card-tooltip"
           [class.empty]="!note.labels.includes(2)">
           <mat-card class="taskCard" [class.darkCard]="isDarkMode" (click)="editNote(note)">
@@ -51,7 +52,7 @@
                 <span>Start date {{note.startDate | date: "dd.MM"}}</span>
                 <span>Duration {{ (note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1 }} Day<span
                     *ngIf="note.endDate-note.startDate > 86300">'s</span></span>
-              </span><span class="footerRight">{{labels[1].text}}</span>
+              </span><span class="footerRight">{{labels[1]?.text}}</span>
             </mat-card-footer>
           </mat-card>
         </div>
@@ -62,8 +63,8 @@
     <tr *ngIf="isSecurity" [class.darkBg]="isDarkMode">
       <td>{{labels[2]?.text}}</td>
       <td *ngFor="let item of [].constructor(5); let i = index ">
-        <div class="taskCardWrap" *ngFor="let note of mappedTasks[0].security[startIndex+i]; let s = index"
-          [ngStyle]="{'left.px': s*stackOffsetX, 'top.px': s*stackOffsetY, 'width.px': ((cardWidth/ratio) * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
+        <div class="taskCardWrap" *ngFor="let note of mappedTasks.security[startIndex+i]; let s = index"
+          [ngStyle]="{'left.px': s*stackOffsetX, 'top.px': s*stackOffsetY,'height.px': cardHeight, 'width.px': (cardWidth * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
           matTooltip={{note.summary}} matTooltipPosition="above" matTooltipClass="card-tooltip"
           [class.empty]="!note.labels.includes(3)">
           <mat-card class="taskCard" [class.darkCard]="isDarkMode" (click)="editNote(note)">
@@ -75,7 +76,7 @@
                 <span>Start date {{note.startDate | date: "dd.MM"}}</span>
                 <span>Duration {{ (note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1 }} Day<span
                     *ngIf="note.endDate-note.startDate > 86300">'s</span></span>
-              </span><span class="footerRight">{{labels[2].text}}</span>
+              </span><span class="footerRight">{{labels[2]?.text}}</span>
             </mat-card-footer>
           </mat-card>
         </div>
@@ -85,60 +86,3 @@
   </table>
 
 </div>
-
-
-<!-- Mobile view under 800px as List -->
-<!--
-<div class="mobile" [class.mobileDarkBg]="isDarkMode">
-  <mat-list>
-    <div *ngFor="let item of [].constructor(mappedTasks.length); let i = index"
-      [class.empty]="mappedTasks[i].length == 0">
-      <div class="subHeader" [class.subHeaderDark]="isDarkMode" mat-subheader>{{ (calendarWeekStart)+(oneDay*i) | date:
-        "dd.MM"}}</div>
-      <span *ngIf="isFrontend">
-        <mat-list-item *ngFor="let note of mappedTasks[startIndex+i] " (click)="editNote(note)"
-          [class.empty]="!note.labels.includes(1)">
-          <div mat-line>({{note.id}}) {{note.title}}</div>
-          <div matTooltip={{note.summary}} matTooltipPosition="above" matTooltipClass="card-tooltip" mat-line>
-            {{note.summary}}</div>
-          <div mat-line class="matCardFooter">
-            <div>Duration {{ (note.endDate/1000 - note.startDate/1000) / (3600 * 24) +
-              1 }} Day<span *ngIf="note.endDate-note.startDate > 86300">'s</span></div>
-            <div>{{labels[0]?.text}}</div>
-          </div>
-        </mat-list-item>
-      </span>
-
-      <span *ngIf="isBackend">
-        <mat-list-item *ngFor="let note of mappedTasks[startIndex+i] " (click)="editNote(note)"
-          [class.empty]="!note.labels.includes(2)">
-          <div mat-line>({{note.id}}) {{note.title}}</div>
-          <div matTooltip={{note.summary}} matTooltipPosition="above" matTooltipClass="card-tooltip" mat-line>
-            {{note.summary}}</div>
-          <div mat-line class="matCardFooter">
-            <div>Duration {{ (note.endDate/1000 - note.startDate/1000) / (3600 * 24) +
-              1 }} Day<span *ngIf="note.endDate-note.startDate > 86300">'s</span></div>
-            <div>{{labels[1]?.text}}</div>
-          </div>
-        </mat-list-item>
-      </span>
-
-      <span *ngIf="isSecurity">
-        <mat-list-item *ngFor="let note of mappedTasks[startIndex+i] " (click)="editNote(note)"
-          [class.empty]="!note.labels.includes(3)">
-          <div mat-line>({{note.id}}) {{note.title}}</div>
-          <div matTooltip={{note.summary}} matTooltipPosition="above" matTooltipClass="card-tooltip" mat-line>
-            {{note.summary}}</div>
-          <div mat-line class="matCardFooter">
-            <div>Duration {{ (note.endDate/1000 - note.startDate/1000) / (3600 * 24) +
-              1 }} Day<span *ngIf="note.endDate-note.startDate > 86300">'s</span></div>
-            <div>{{labels[2]?.text}}</div>
-          </div>
-        </mat-list-item>
-      </span>
-      <mat-divider></mat-divider>
-    </div>
-  </mat-list>
-
-
-</div> -->

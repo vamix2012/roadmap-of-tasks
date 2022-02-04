@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CalendarDataService {
-
   allNotesEndpoint: string =
-  'https://61ee5f30d593d20017dbad98.mockapi.io/pinguin/api/notes';
+    'https://61ee5f30d593d20017dbad98.mockapi.io/pinguin/api/notes';
 
   noteLabelsEndpoint: string =
-  'https://61ee5f30d593d20017dbad98.mockapi.io/pinguin/api/noteLabels';
+    'https://61ee5f30d593d20017dbad98.mockapi.io/pinguin/api/noteLabels';
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +18,11 @@ export class CalendarDataService {
     return this.http.get<any>(allNotesEndpoint);
   }
 
-  getLabels(noteLabelsEndpoint: string):Observable<any>{
+  getLabels(noteLabelsEndpoint: string): Observable<any> {
     return this.http.get<any>(noteLabelsEndpoint);
   }
+
+  // updateNotes(allNotesEndpoint: string){
+  //   return this.http.
+  // }
 }

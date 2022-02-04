@@ -1,5 +1,11 @@
 import { CalendarDataService } from './../services/calendar-data.service';
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { Note } from '../models/note.model';
 import { MatDialog } from '@angular/material/dialog';
 import { NoteLabel } from '../models/noteLabel.model';
@@ -10,7 +16,7 @@ import { EditTicketComponent } from '../edit-ticket/edit-ticket.component';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, AfterViewInit {
   allNotes: Note[] = [];
   // Start of first Week in ms
   @Input() calendarWeekStart: number = 1641164400000;
@@ -22,13 +28,10 @@ export class CalendarComponent implements OnInit {
   calendarWeekEnd: number = this.calendarWeekStart + this.oneWeek;
   //start index used for mapping each note or array of notes in the template
   @Input() startIndex = 0;
-  cardWidth!: number;
-  ratio: number = 2.45; // Here are the mapped values of each section
-  filteredFrontend: any = [];
-  filteredBackend: any = [];
-  filteredSecurity: any = [];
+  cardWidth: number = 100;
+  cardHeight: number = 100;
   // used for determining the offset of the stacked cards
-  stackOffsetX = 5;
+  stackOffsetX = 2;
   stackOffsetY = 22;
   // values used for the filter on the left of the toolbar
   @Input() isFrontend: boolean = true;
@@ -36,13 +39,11 @@ export class CalendarComponent implements OnInit {
   @Input() isSecurity: boolean = true;
   // value used for Darkmode switch
   @Input() isDarkMode: boolean = false;
-  mappedTasks: any[] = [
-    {
-      frontend: [],
-      backend: [],
-      security: [],
-    },
-  ];
+  mappedTasks: any = {
+    frontend: [],
+    backend: [],
+    security: [],
+  };
   //value used to keep track of the Calendar Week
   @Input() calendarWeek: number = 1;
   //value initialized to store labels data
@@ -54,8 +55,7 @@ export class CalendarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.checkInnerWidth();
-    this.cardWidth = window.innerWidth / this.ratio;
+    this.checkInnerWidth(window.innerWidth);
     //Get request to get the labels data
     this.dataService
       .getLabels(this.dataService.noteLabelsEndpoint)
@@ -63,88 +63,97 @@ export class CalendarComponent implements OnInit {
         this.labels = label;
       });
     // Get request to get All notes
-    this.dataService
-      .getAllNotes(this.dataService.allNotesEndpoint)
-      .subscribe((note) => {
-        this.allNotes = note.notes;
-        for (let ticket of this.allNotes) {
-          // converting date start and end timestamp from seconds to miliseconds
-          ticket.startDate *= 1000;
-          ticket.endDate *= 1000;
-        }
-        this.mapTickets();
-      });
-  }
+    if (localStorage.getItem('allNotes')) {
+      let allNotesLS: any = localStorage.getItem('allNotes');
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.checkInnerWidth();
-  }
+      this.allNotes = JSON.parse(allNotesLS);
 
-  checkInnerWidth() {
-    if (window.innerWidth > 1682) {
-      this.ratio = 2.45;
-      this.cardWidth = window.innerWidth / this.ratio;
+      this.mapTickets();
     } else {
-      this.ratio = 2.01;
-      this.cardWidth = window.innerWidth / this.ratio;
+      this.dataService
+        .getAllNotes(this.dataService.allNotesEndpoint)
+        .subscribe((note) => {
+          this.allNotes = note.notes;
+
+          for (let ticket of this.allNotes) {
+            // converting date start and end timestamp from seconds to miliseconds
+            ticket.startDate *= 1000;
+            ticket.endDate *= 1000;
+          }
+
+          this.mapTickets();
+          localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
+        });
     }
   }
 
-  // sortTasks(tasks: Note[]) {
-  //   //container initialized to sort every note for each section
-  //   for (let ticket of tasks) {
-  //
-  //
-  //     // sort every task to it's corresponding label
-  //     if (ticket.labels.includes(1)) {
-  //       frontend.push(ticket);
-  //     }
-  //     if (ticket.labels.includes(2)) {
-  //       backend.push(ticket);
-  //     }
-  //     if (ticket.labels.includes(3)) {
-  //       security.push(ticket);
-  //     }
-  //   }
-  //   // Mapping function call for every section
-  //   this.mapTickets(frontend, this.filteredFrontend);
-  //   this.mapTickets(backend, this.filteredBackend);
-  //   this.mapTickets(security, this.filteredSecurity);
-  // }
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.checkInnerWidth(window.innerWidth);
+    }, 0);
+  }
+
+  saveChanges() {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkInnerWidth(window.innerWidth);
+  }
+
+  checkInnerWidth(width: number) {
+    // Change card width based on screen width
+    if (width > 1480) {
+      this.cardWidth = 0.15 * width;
+    }
+    if (width > 1000 && width < 1480) {
+      this.cardWidth = 0.14 * width;
+    }
+    if (width < 1000) {
+      this.cardWidth = 140;
+    }
+    // Change card height based on screen height
+    let height = window.innerHeight;
+    if (height > 800) {
+      this.cardHeight = 0.17 * height;
+      console.log(this.cardHeight);
+    } else {
+      this.cardHeight = 140;
+    }
+  }
 
   // Mapping every note to it's coresponding day
   mapTickets() {
-    let iterator = 0;
+    let iterator: number = 0;
     let start = this.calendarWeekStart;
-    for (let i = 0; i < this.allNotes.length; i++) {
-      this.mappedTasks[0].frontend[i] = [];
-      this.mappedTasks[0].backend[i] = [];
-      this.mappedTasks[0].security[i] = [];
+    for (let i = 0; i < this.allNotes.length * 4; i++) {
+      this.mappedTasks.frontend[i] = [];
+      this.mappedTasks.backend[i] = [];
+      this.mappedTasks.security[i] = [];
       for (let note of this.allNotes) {
         if (
           start - note.startDate > -this.oneDay &&
           start - note.startDate < this.oneDay
         ) {
           if (note.labels.includes(1)) {
-            this.mappedTasks[0].frontend[i].push(note);
+            this.mappedTasks.frontend[i].push(note);
           }
           if (note.labels.includes(2)) {
-            this.mappedTasks[0].backend[i].push(note);
+            this.mappedTasks.backend[i].push(note);
           }
           if (note.labels.includes(3)) {
-            this.mappedTasks[0].security[i].push(note);
+            this.mappedTasks.security[i].push(note);
           }
         }
       }
       iterator++;
       start += this.oneDay;
     }
-    console.log(this.mappedTasks[0]);
+    console.log(this.mappedTasks);
   }
 
   // Open dialog to edit Ticket
   editNote(note: any) {
+    console.log(note);
     this.dialog.open(EditTicketComponent, {
       data: {
         note: note,

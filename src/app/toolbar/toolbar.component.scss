@@ -1,8 +1,11 @@
 .toolbar {
   display         : flex;
+  height          : max-content;
   justify-content : space-between;
   background-color: #3f51b5;
   color           : white;
+  padding         : 16px;
+
 }
 
 .weekSelectorBtn {
@@ -11,9 +14,15 @@
   border-radius: 100%;
   color        : white;
   padding      : 5px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.356);
+    cursor          : pointer;
+  }
 }
 
 .ticketsFilter {
+
   background-color: #3f51b5;
   color           : white;
   width           : 200px;
@@ -21,6 +30,7 @@
   padding         : 8px;
   border-radius   : 5px;
   font-size       : large;
+  cursor          : pointer;
 }
 
 .toolbarDark,
@@ -30,27 +40,12 @@
 
 @media(max-width: 800px) {
   .toolbar {
-    flex-wrap: wrap;
-
+    flex-wrap      : wrap;
     justify-content: space-around;
 
   }
 
-  .weekSelector {
-    display: none;
-  }
-}
-
-// @media(max-width: 620px) {
-//   .toolbar {
-
-//     height: 150px;
-//   }
-// }
-
-@media(max-width: 372px) {
-  .toolbar {
-
-    height: 150px;
+  .weekSelectorBtn {
+    margin: 16px;
   }
 }

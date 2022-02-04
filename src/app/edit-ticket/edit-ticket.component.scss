@@ -3,6 +3,15 @@
   height        : 50vh;
   display       : flex;
   flex-direction: column;
+}
 
+.dateWrap {
+  margin-top     : 16px;
+  width          : 100%;
+  display        : flex;
+  justify-content: space-between;
+}
 
+.halfWidth {
+  width: 48%;
 }

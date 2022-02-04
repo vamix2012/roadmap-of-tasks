@@ -6,9 +6,26 @@
   </mat-form-field>
   <mat-form-field hintLabel="Max 250 characters" appearance="fill">
     <mat-label>Summary</mat-label>
-    <textarea rows="8" maxlength="250" [(ngModel)]='note.summary' matInput></textarea>
+    <textarea rows="5" maxlength="250" [(ngModel)]='note.summary' matInput></textarea>
     <mat-hint align="end">{{note.summary.length || 0}}/250</mat-hint>
   </mat-form-field>
+
+  <div class="dateWrap">
+    <mat-form-field appearance="fill" class="halfWidth">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="startDat" [(ngModel)]='startDate'>
+      <mat-datepicker-toggle matSuffix [for]="startDat"></mat-datepicker-toggle>
+      <mat-datepicker #startDat>123</mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="halfWidth">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="endDat" [(ngModel)]='endDate'>
+      <mat-datepicker-toggle matSuffix [for]="endDat"></mat-datepicker-toggle>
+      <mat-datepicker #endDat></mat-datepicker>
+    </mat-form-field>
+
+  </div>
 </div>
+
 <button mat-button color="primary" (click)="updateNote()">Save</button>
 <button mat-button color="warn" mat-dialog-close>Cancel</button>
