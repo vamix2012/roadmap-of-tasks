@@ -14,6 +14,7 @@ export class EditTicketComponent implements OnInit {
   endDate: any;
   duration: any;
   allNotes: Note[] = [];
+  delete: boolean = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -45,11 +46,22 @@ export class EditTicketComponent implements OnInit {
     this.convertDate();
     for (let i = 0; i < this.allNotes.length; i++) {
       if (this.allNotes[i].id == this.note.id) {
-        this.allNotes[i] = this.note;
+        this.allNotes.splice(i, 1, this.note);
         localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
       }
     }
 
+    this.dialog.closeAll();
+    window.location.reload();
+  }
+
+  deleteNote() {
+    for (let i = 0; i < this.allNotes.length; i++) {
+      if (this.allNotes[i].id == this.note.id) {
+        this.allNotes.splice(i, 1);
+        localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
+      }
+    }
     this.dialog.closeAll();
     window.location.reload();
   }

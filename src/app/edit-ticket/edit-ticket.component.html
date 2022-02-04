@@ -27,5 +27,8 @@
   </div>
 </div>
 
+
 <button mat-button color="primary" (click)="updateNote()">Save</button>
 <button mat-button color="warn" mat-dialog-close>Cancel</button>
+<button mat-button color="warn" (click)="delete = true"><span (click)="deleteNote()" [class.d-none]="!delete"
+    style="font-size: 20px">Are you sure?</span><span [class.d-none]="delete">Delete</span></button>
