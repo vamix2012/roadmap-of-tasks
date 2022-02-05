@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/* CSS Variables */
+:root {
+  // Darkmode colors
+  --black        : #111213ff;
+  --black-lighter: #303030;
+  --gray         : #607d8b;
+  // Lightmode colors
+  --white        : #ffffffff;
+  --blue         : #3f51b5;
+  --cyan         : #29b9f0ff;
+  --red          : red;
+}
 
 html,
 body {

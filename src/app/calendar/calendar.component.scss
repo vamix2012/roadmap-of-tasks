@@ -18,7 +18,7 @@
 }
 
 .tableWrapDark {
-  background-color: #303030;
+  background-color: var(--black);
 
   th:first-child {
     border-right: 1px solid white !important;
@@ -50,19 +50,19 @@
   }
 
   .darkPrimary {
-    background-color: #e91e63;
+    background-color: var(--black-lighter);
 
     th:not(:first-child) {
       border: 1px solid white;
     }
 
     th:first-child {
-      background-color: #303030;
+      background-color: var(--black);
     }
   }
 
   .darkBg {
-    background-color: #303030;
+    background-color: var(--black);
 
     td:first-child,
     th:first-child {
@@ -170,14 +170,10 @@
 
 // Used to wrap every TaskCard for a better alignment of the items
 .taskCardWrap {
-
-  // height  : 80%;
   position: absolute;
-
-  top: 2px;
-
-  left  : 2px;
-  margin: 2px;
+  top     : 2px;
+  left    : 2px;
+  margin  : 2px;
 
   .notesId {
     border       : 1px solid black;
@@ -278,6 +274,12 @@
   .tableSmall {
     width       : calc(1000px - 64px);
     margin-right: 32px;
+  }
+
+  .tableWrap {
+    padding: 32px 0 0 0;
+
+
   }
 
 

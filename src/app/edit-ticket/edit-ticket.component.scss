@@ -1,8 +1,9 @@
 .inputField {
-  width         : 60vw;
-  height        : 50vh;
-  display       : flex;
-  flex-direction: column;
+  width          : 60vw;
+  height         : 50vh;
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
 }
 
 .dateWrap {
@@ -18,4 +19,17 @@
 
 .d-none {
   display: none;
+}
+
+.btns {
+  button {
+    margin-right: 16px;
+  }
+}
+
+.assign-section {
+  mat-checkbox {
+    margin-right: 16px;
+  }
+
 }

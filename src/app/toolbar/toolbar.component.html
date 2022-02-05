@@ -22,8 +22,9 @@
   </div>
 
   <div class="colorThemeSelector">
-    <mat-slide-toggle (change)="onChange($event)" color="accent">
-      Dark mode
+    <mat-slide-toggle (change)="onChange($event)" color="primary">
+      <span *ngIf="isDarkMode">Dark</span>
+      <span *ngIf="!isDarkMode">Light</span>
     </mat-slide-toggle>
   </div>
 

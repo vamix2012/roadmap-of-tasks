@@ -115,9 +115,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     let height = window.innerHeight;
     if (height > 800) {
       this.cardHeight = 0.17 * height;
-      console.log(this.cardHeight);
     } else {
-      this.cardHeight = 140;
+      this.cardHeight = 130;
     }
   }
 
@@ -148,16 +147,21 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       iterator++;
       start += this.oneDay;
     }
-    console.log(this.mappedTasks);
   }
 
   // Open dialog to edit Ticket
   editNote(note: any) {
-    console.log(note);
-    this.dialog.open(EditTicketComponent, {
+    let dialogRef = this.dialog.open(EditTicketComponent, {
       data: {
         note: note,
+        allNotes: this.allNotes,
       },
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      this.allNotes = res;
+      this.mapTickets();
+      this.dialog.closeAll();
     });
   }
 }
