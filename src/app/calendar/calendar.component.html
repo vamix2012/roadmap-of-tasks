@@ -17,10 +17,10 @@
         <div class="taskCardWrap" *ngFor="let note of mappedTasks.frontend[startIndex+i]; let j = index"
           [ngStyle]="{'left.px': j*stackOffsetX, 'top.px': j*stackOffsetY,'height.px': cardHeight, 'width.px' : (cardWidth * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
           [class.empty]="!note.labels.includes(1)">
-          <mat-card class="taskCard" matTooltip={{note.summary}} matTooltipPosition="above"
-            matTooltipClass="card-tooltip" [class.darkCard]="isDarkMode" (click)="editNote(note)">
+          <mat-card class="taskCard" [class.darkCard]="isDarkMode" (click)="editNote(note)">
             <mat-card-title><span class="notesId rem-border"> {{ note.id }} </span>{{ note.title }}</mat-card-title>
-            <mat-card-content> <span class="summaryContent">{{ note.summary }}</span>
+            <mat-card-content> <span matTooltip={{note.summary}} matTooltipPosition="above"
+                matTooltipClass="card-tooltip" class="summaryContent">{{ note.summary }}</span>
             </mat-card-content>
             <span class="dots">...</span>
             <mat-card-footer><span class="footerLeft">
@@ -42,10 +42,11 @@
         <div class="taskCardWrap" *ngFor="let note of mappedTasks.backend[startIndex+i]; let j = index"
           [ngStyle]="{'left.px': j*stackOffsetX, 'top.px': j*stackOffsetY,'height.px': cardHeight, 'width.px' : (cardWidth * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
           [class.empty]="!note.labels.includes(2)">
-          <mat-card class="taskCard" matTooltip={{note.summary}} matTooltipPosition="above"
-            matTooltipClass="card-tooltip" [class.darkCard]="isDarkMode" (click)="editNote(note)">
+          <mat-card class="taskCard" [class.darkCard]="isDarkMode" (click)="editNote(note)">
             <mat-card-title><span class="notesId rem-border"> {{ note.id }} </span>{{ note.title }}</mat-card-title>
-            <mat-card-content> <span class="summaryContent">{{ note.summary }}</span>
+            <mat-card-content> <span matTooltipClass="card-tooltip" matTooltip={{note.summary}}
+                matTooltipPosition="above" class="summaryContent">{{
+                note.summary }}</span>
             </mat-card-content>
             <span class="dots">...</span>
             <mat-card-footer><span class="footerLeft">
@@ -66,10 +67,11 @@
         <div class="taskCardWrap" *ngFor="let note of mappedTasks.security[startIndex+i]; let s = index"
           [ngStyle]="{'left.px': s*stackOffsetX, 'top.px': s*stackOffsetY,'height.px': cardHeight, 'width.px': (cardWidth * ((note.endDate/1000 - note.startDate/1000) / (3600 * 24) + 1))}"
           [class.empty]="!note.labels.includes(3)">
-          <mat-card class="taskCard" matTooltip={{note.summary}} matTooltipPosition="above"
-            matTooltipClass="card-tooltip" [class.darkCard]="isDarkMode" (click)="editNote(note)">
-            <mat-card-title><span class="notesId rem-border"> {{ note.id }} </span>{{ note.title }}</mat-card-title>
-            <mat-card-content> <span class="summaryContent">{{ note.summary }}</span>
+          <mat-card class="taskCard" [class.darkCard]="isDarkMode" (click)="editNote(note)">
+            <mat-card-title><span class="notesId rem-border"> {{
+                note.id }} </span>{{ note.title }}</mat-card-title>
+            <mat-card-content> <span matTooltipClass="card-tooltip" matTooltip={{note.summary}}
+                matTooltipPosition="above" class="summaryContent">{{ note.summary }}</span>
             </mat-card-content>
             <span class="dots">...</span>
             <mat-card-footer><span class="footerLeft">
