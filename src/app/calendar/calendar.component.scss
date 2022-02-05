@@ -272,8 +272,9 @@
 
   .table,
   .tableSmall {
-    width       : calc(1000px - 64px);
-    margin-right: 32px;
+    width        : calc(1000px - 64px);
+    margin-right : 32px;
+    margin-bottom: 150px;
   }
 
   .tableWrap {

@@ -65,22 +65,18 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     // Get request to get All notes
     if (localStorage.getItem('allNotes')) {
       let allNotesLS: any = localStorage.getItem('allNotes');
-
       this.allNotes = JSON.parse(allNotesLS);
-
       this.mapTickets();
     } else {
       this.dataService
         .getAllNotes(this.dataService.allNotesEndpoint)
         .subscribe((note) => {
           this.allNotes = note.notes;
-
           for (let ticket of this.allNotes) {
             // converting date start and end timestamp from seconds to miliseconds
             ticket.startDate *= 1000;
             ticket.endDate *= 1000;
           }
-
           this.mapTickets();
           localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
         });
@@ -160,6 +156,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((res) => {
       this.allNotes = res;
+      localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
       this.mapTickets();
       this.dialog.closeAll();
     });
