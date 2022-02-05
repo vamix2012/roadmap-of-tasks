@@ -1,10 +1,6 @@
 import { CalendarDataService } from './../services/calendar-data.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Note } from '../models/note.model';
 
 @Component({
@@ -22,6 +18,7 @@ export class EditTicketComponent implements OnInit {
   isFrontend: boolean = false;
   isBackend: boolean = false;
   isSecurity: boolean = false;
+  isEditMode: boolean = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -76,6 +73,9 @@ export class EditTicketComponent implements OnInit {
       }
       this.dialogRef.close(this.allNotes);
     }
+  }
+  closeDialog() {
+    this.dialogRef.close(this.allNotes);
   }
 
   deleteNote() {

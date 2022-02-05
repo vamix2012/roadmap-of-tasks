@@ -258,6 +258,10 @@
     margin-bottom: 100px;
   }
 
+  ::ng-deep .card-tooltip {
+    visibility: hidden;
+  }
+
   .tableSmall {
     height       : 230px;
     margin-bottom: 100px;
@@ -269,6 +273,10 @@
 }
 
 @media(max-width: 1000px) {
+
+  ::ng-deep .card-tooltip {
+    visibility: hidden;
+  }
 
   .table,
   .tableSmall {

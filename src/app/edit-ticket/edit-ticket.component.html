@@ -1,5 +1,5 @@
-<h1 mat-dialog-title>Edit Ticket</h1>
-<div mat-dialog-content class="inputField">
+<h1 mat-dialog-title><span *ngIf="isEditMode">Edit Ticket</span><span *ngIf="!isEditMode">Ticket Details</span></h1>
+<div mat-dialog-content class="inputField" *ngIf="isEditMode">
   <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
     <input [(ngModel)]='note.title' matInput placeholder="Enter title">
@@ -17,7 +17,8 @@
       <mat-checkbox class="example-margin" [(ngModel)]="isSecurity">Security</mat-checkbox>
 
     </section>
-    <div style="color: var(--red);" [class.d-none]="isBackend || isFrontend || isSecurity"> You must assing the task to
+    <div style="color: var(--red);" [class.d-none]="isBackend || isFrontend || isSecurity"> You must assing the task
+      to
       at
       least one department,
       otherwise delete it!</div>
@@ -50,6 +51,40 @@
   <div class="btns">
     <button mat-stroked-button color="primary" [disabled]="!isBackend && !isFrontend && !isSecurity"
       (click)="updateNote()">Save</button>
-    <button mat-stroked-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-stroked-button color="warn" (click)="closeDialog()">Cancel</button>
     <button mat-stroked-button color="warn" (click)="delete = true"><span [class.d-none]="delete">Delete</span></button>
   </div>
+</div>
+
+<div mat-dialog-content class="inputField" *ngIf="!isEditMode">
+
+  <h1>{{ note.id}} {{note.title}}</h1>
+  <section>
+    <h2>Summary</h2>
+    <p>{{note.summary}}</p>
+  </section>
+  <div class="fullWidth">
+    <section>
+      <h2>Start Date</h2>
+      <p>{{ note.startDate | date: "dd.MM"}}</p>
+    </section>
+    <section>
+      <h2>End Date</h2>
+      <p>{{ note.endDate | date: "dd.MM"}}</p>
+    </section>
+  </div>
+  <h2>Assigned to</h2>
+  <section class="ml-2">
+
+    <p *ngIf="isFrontend">Frontend</p>
+    <p *ngIf="isBackend">Backend</p>
+    <p *ngIf="isSecurity">Security</p>
+  </section>
+
+  <div class="btns">
+    <button mat-stroked-button color="warn" (click)="closeDialog()">Cancel</button>
+    <button mat-stroked-button color="warn" (click)="isEditMode = !isEditMode">Edit</button>
+  </div>
+
+
+</div>

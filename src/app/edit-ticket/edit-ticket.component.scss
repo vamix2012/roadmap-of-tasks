@@ -17,8 +17,22 @@
   width: 48%;
 }
 
+.fullWidth {
+  display        : flex;
+  justify-content: space-between;
+}
+
 .d-none {
   display: none;
+}
+
+.ml-2 {
+  display: flex;
+
+  p {
+    margin-right: 32px;
+  }
+
 }
 
 .btns {
@@ -32,4 +46,12 @@
     margin-right: 16px;
   }
 
+}
+
+.detailsView {
+  width          : 60vw;
+  height         : 50vh;
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
 }
