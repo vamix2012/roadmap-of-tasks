@@ -156,11 +156,14 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe((res) => {
       // response is empty wont save it to the Database
-      this.allNotes = res;
-      localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
-      this.mapTickets();
-
-      this.dialog.closeAll();
+      if (res === undefined) {
+        this.dialog.closeAll();
+      } else {
+        this.allNotes = res;
+        localStorage.setItem('allNotes', JSON.stringify(this.allNotes));
+        this.mapTickets();
+        this.dialog.closeAll();
+      }
     });
   }
 }
