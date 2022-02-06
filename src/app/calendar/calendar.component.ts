@@ -39,6 +39,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   @Input() isSecurity: boolean = true;
   // value used for Darkmode switch
   @Input() isDarkMode: boolean = false;
+  // value used to store notes mapped each on it's coresponding day
   mappedTasks: any = {
     frontend: [],
     backend: [],
@@ -54,14 +55,24 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     public dialog: MatDialog
   ) {}
 
+  /**
+   *
+   * <p>On initialization the screen size is checked and data fetched from database</p>
+   * <p>At this point I used localStorage to store data from database</p>
+   * <p>It can be switched to use API POST PUT requests instead of saving in localStorage</p>
+   *
+   */
   ngOnInit(): void {
-    this.checkInnerWidth(window.innerWidth);
+    // Check screen size on initioalization
+    this.checkScreenSize(window.innerWidth, window.innerHeight);
+
     //Get request to get the labels data
     this.dataService
       .getLabels(this.dataService.noteLabelsEndpoint)
       .subscribe((label) => {
         this.labels = label;
       });
+
     // Get request to get All notes
     if (localStorage.getItem('allNotes')) {
       let allNotesLS: any = localStorage.getItem('allNotes');
@@ -83,20 +94,31 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     }
   }
 
+  /**
+   * <p>After intialization any screen size changes are detected,</p>
+   * <p>such as maximizing window or restore down</p>
+   * <p>Because these are not detected by the Host Listener</p>
+   */
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.checkInnerWidth(window.innerWidth);
+      this.checkScreenSize(window.innerWidth, window.innerHeight);
     }, 0);
   }
 
-  saveChanges() {}
-
+  /**
+   * This Host Listener is listening to screen size changes and fires the checkScreenSize function
+   */
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    this.checkInnerWidth(window.innerWidth);
+    this.checkScreenSize(window.innerWidth, window.innerHeight);
   }
 
-  checkInnerWidth(width: number) {
+  /**
+   *Function used to adjust the width and height of the Notes based on screen size
+   * @param width Screen inner Width
+   * @param height Screen inner Height
+   */
+  checkScreenSize(width: number, height: number) {
     // Change card width based on screen width
     if (width > 1480) {
       this.cardWidth = 0.15 * width;
@@ -108,7 +130,6 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       this.cardWidth = 140;
     }
     // Change card height based on screen height
-    let height = window.innerHeight;
     if (height > 800) {
       this.cardHeight = 0.17 * height;
     } else {
@@ -116,19 +137,28 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Mapping every note to it's coresponding day
+  /**
+   * Mapping every note to it's coresponding day
+   */
   mapTickets() {
     let iterator: number = 0;
     let start = this.calendarWeekStart;
+
     for (let i = 0; i < this.allNotes.length * 4; i++) {
+      // Adding empty array to each day then push tickets to the corresponding day
       this.mappedTasks.frontend[i] = [];
       this.mappedTasks.backend[i] = [];
       this.mappedTasks.security[i] = [];
+
       for (let note of this.allNotes) {
+        // Checking if the Note coresponds to the Day
         if (
           start - note.startDate > -this.oneDay &&
           start - note.startDate < this.oneDay
         ) {
+          // If the startDate of the note corresponds
+          // Is then mapped to it's department based on note.labels
+          // 1 is for Frontend, 2 is for Backend, 3 is for Security
           if (note.labels.includes(1)) {
             this.mappedTasks.frontend[i].push(note);
           }
@@ -145,15 +175,20 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Open dialog to edit Ticket
-  editNote(note: any) {
+  //
+  /**
+   * Open dialog to see Ticket details with Edit option
+   * @param  note is the coresponding object to be injected on dialog
+   */
+  showNoteDetails(note: any) {
     let dialogRef = this.dialog.open(EditTicketComponent, {
       data: {
         note: note,
         allNotes: this.allNotes,
       },
     });
-
+    // After the dialog is closed the updated data if edited or deleted is passed back to calendar component
+    // And saved in the database
     dialogRef.afterClosed().subscribe((res) => {
       // response is empty wont save it to the Database
       if (res === undefined) {

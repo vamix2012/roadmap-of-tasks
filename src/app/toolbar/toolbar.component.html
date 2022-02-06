@@ -29,6 +29,10 @@
   </div>
 
 </mat-toolbar>
+
+
+<!-- App Calendar is binded here just for easy data syncronization between toolbar and calendar since they must work together
+I know there is a better way to sync data between components but for now I used this -->
 <app-calendar [class.darkCalendarBg]="isDarkMode" [calendarWeek]="calendarWeek" [calendarWeekStart]="calendarWeekStart"
   [startIndex]="startIndex" [isFrontend]="isFrontend" [isBackend]="isBackend" [isSecurity]="isSecurity"
   [isDarkMode]="isDarkMode">

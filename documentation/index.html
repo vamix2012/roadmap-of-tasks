@@ -1,0 +1,178 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>roadmap documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">roadmap documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="roadmap-of-tasks">Roadmap of tasks</h1>
+<p>This application shows notes organized by categories on a timeline.</p>
+<h2 id="project-description">Project description</h2>
+<p>This project is developed using Angular, Angular Material.</p>
+<p><strong>Toolbar</strong></p>
+<p>The application has a toolbar with Label filtering option, Calendar Week selector and Theme switch eg. Light or Dark mode.</p>
+<p><strong>Grid with notes</strong></p>
+<p>The aplication data is shown on a 5x3 grid for five workdays(just workdays are shown) and three departments, every note is shown at it&#39;s coresponding day and has it&#39;s length based on the duration.</p>
+<p>eg. if duration is 2 day&#39;s the card will take two columns. The note are focusable on hover eg. when the bottom stacked note is hovered will apear on top of the stack.</p>
+<p><strong>Notes</strong></p>
+<p>Every note will show a detailed view when clicked, in the dialog we have an option to edit the note, data such as Title, Summary, Start date, End date, Labels(departments) can be changed and saved or deleted(confirmation needed to delete).</p>
+<p><strong>Data fetch and processing</strong></p>
+<p>The data is fetched with a GET Request on Notes Endpoint, then the response is stored in a variable where all the notes are stored and it&#39;s data is mapped to it&#39;s coresponding day in a new variable, the edited/deleted notes are updated variable where all the notes are stored and then the mapping function will be fired again to update the UI.</p>
+<p><strong>Responsive design</strong></p>
+<p>The size of the Table and Notes is updated based on the screen width and height and under 800px width or 1000px the Table has fixed Width and Height and can be scrolled to see the oveflowing content.</p>
+<p><strong>Theme switch</strong></p>
+<p>The UI theme can be changed by clicking on the switch top right corner.</p>
+<p><strong>Labels filter(Departments)</strong></p>
+<p>The UI offers a Label filtering top left corner by selecting an option and based on that selection the table will show just the selected option or all labels.</p>
+<h2 id="basic-requirements">Basic requirements</h2>
+<ul>
+<li><p>Fetch notes &amp; label data from given endpoints</p>
+</li>
+<li><p>Display notes, grouped by labels, in a workdays-based weekly overview</p>
+</li>
+<li><p>Offer a filter function for labels</p>
+</li>
+<li><p>Notes are editable via a dialog</p>
+<ul>
+<li>changed data should be reflected on cards &amp; board (example: changed start date)</li>
+<li>Input validation for the summary<ul>
+<li>max length 250</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="user-interface">User Interface</h2>
+<ul>
+<li>Display a workdays-based weekly view for notes - Offered function in the top row: a week switch &amp; filter option for labels</li>
+<li>Display label-based rows (based on selected filter) and their notes</li>
+<li>Card design/details:<ul>
+<li>Normal Card contain note Id, title, summary, startDate, duration</li>
+<li>Small cards contain note Id, title, summary with just two lines (dotted out)</li>
+</ul>
+</li>
+<li>Stacking/overlapping should be solved through overlapping to avoid scrollbars</li>
+<li>On hover a card will be highlighted on top (stacking) + show full summary for small cards</li>
+<li>Clicking on a card opens the edit dialog o possible edit fields: Summary, start date, duration, labels, title<ul>
+<li>Buttons: Save &amp; cancel</li>
+</ul>
+</li>
+<li>Scrollbars<ul>
+<li>Vertical: no scrollbar above &gt;=800px height (including possible stacked notes)</li>
+<li>Horizontal: no horizontal scrollbar &gt;= 1000px width</li>
+</ul>
+</li>
+</ul>
+<h2 id="optional-challenges">Optional challenges</h2>
+<ul>
+<li>Editable: Save a changed data at the right endpoint and replace updated data in the frontend data (it is a dummy save endpoint – no real saving/manipulation action!)</li>
+<li>Show label: display note labels inside the card</li>
+<li>Deleteable: Delete notes via a button and frontend wise reflected</li>
+<li>Dark mode: offer a UI dark mode</li>
+</ul>
+<p>Just the requierments that are met are writen here.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

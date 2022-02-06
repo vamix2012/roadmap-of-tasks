@@ -1,0 +1,936 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>roadmap documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">roadmap documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ToolbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/toolbar/toolbar.component.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-toolbar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./toolbar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./toolbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calendarWeek" >calendarWeek</a>
+                            </li>
+                            <li>
+                                <a href="#calendarWeekStart" >calendarWeekStart</a>
+                            </li>
+                            <li>
+                                <a href="#isBackend" >isBackend</a>
+                            </li>
+                            <li>
+                                <a href="#isDarkMode" >isDarkMode</a>
+                            </li>
+                            <li>
+                                <a href="#isFrontend" >isFrontend</a>
+                            </li>
+                            <li>
+                                <a href="#isSecurity" >isSecurity</a>
+                            </li>
+                            <li>
+                                <a href="#startIndex" >startIndex</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filterLabels" >filterLabels</a>
+                            </li>
+                            <li>
+                                <a href="#onChange" >onChange</a>
+                            </li>
+                            <li>
+                                <a href="#setWeekDate" >setWeekDate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterLabels"></a>
+                    <span class="name">
+                        <span ><b>filterLabels</b></span>
+                        <a href="#filterLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterLabels(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/toolbar/toolbar.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Method listening to the value of the filter and based on that value is filtering the rows accordingly</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>is the value of the selected option</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChange"></a>
+                    <span class="name">
+                        <span ><b>onChange</b></span>
+                        <a href="#onChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChange(state: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/toolbar/toolbar.component.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>method to listen on change events<br>
+change isDarkmode to true or false depending on switch state</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>is the state of the Theme switch &quot;true&quot; or &quot;false&quot;</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setWeekDate"></a>
+                    <span class="name">
+                        <span ><b>setWeekDate</b></span>
+                        <a href="#setWeekDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setWeekDate(operator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/toolbar/toolbar.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>this method used to navigate trough Calendar Weeks</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>operator</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>value used to check if the calendar week must be increassed or decreased by one week</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calendarWeek"></a>
+                    <span class="name">
+                        <span ><b>calendarWeek</b></span>
+                        <a href="#calendarWeek"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/toolbar/toolbar.component.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calendarWeekStart"></a>
+                    <span class="name">
+                        <span ><b>calendarWeekStart</b></span>
+                        <a href="#calendarWeekStart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1641164400000</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/toolbar/toolbar.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBackend"></a>
+                    <span class="name">
+                        <span ><b>isBackend</b></span>
+                        <a href="#isBackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/toolbar/toolbar.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDarkMode"></a>
+                    <span class="name">
+                        <span ><b>isDarkMode</b></span>
+                        <a href="#isDarkMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/toolbar/toolbar.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFrontend"></a>
+                    <span class="name">
+                        <span ><b>isFrontend</b></span>
+                        <a href="#isFrontend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/toolbar/toolbar.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSecurity"></a>
+                    <span class="name">
+                        <span ><b>isSecurity</b></span>
+                        <a href="#isSecurity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/toolbar/toolbar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startIndex"></a>
+                    <span class="name">
+                        <span ><b>startIndex</b></span>
+                        <a href="#startIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/toolbar/toolbar.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-toolbar&#x27;,
+  templateUrl: &#x27;./toolbar.component.html&#x27;,
+  styleUrls: [&#x27;./toolbar.component.scss&#x27;],
+})
+export class ToolbarComponent {
+  //value used to keep track of the Calendar Week
+  calendarWeek: number &#x3D; 1;
+  //start index used for mapping each note or array of notes in the template
+  startIndex &#x3D; 0;
+  // Start of first Week in ms
+  calendarWeekStart: number &#x3D; 1641164400000;
+  // values used for the filter on the left of the toolbar
+  isFrontend: boolean &#x3D; true;
+  isBackend: boolean &#x3D; true;
+  isSecurity: boolean &#x3D; true;
+  // value used for Darkmode switch
+  isDarkMode: boolean &#x3D; false;
+
+  /**
+   * method to listen on change events&lt;br&gt;
+   * change isDarkmode to true or false depending on switch state
+   * @param state is the state of the Theme switch &quot;true&quot; or &quot;false&quot;
+   */
+  onChange(state: any): void {
+    this.isDarkMode &#x3D; state.checked;
+  }
+
+  /**
+   * this method used to navigate trough Calendar Weeks
+   * @param operator value used to check if the calendar week must be increassed or decreased by one week
+   */
+  setWeekDate(operator: string) {
+    let oneWeek &#x3D; 604800005;
+    if (operator &#x3D;&#x3D;&#x3D; &#x27;+&#x27; &amp;&amp; this.calendarWeek &lt; 52) {
+      this.calendarWeek++;
+      this.startIndex +&#x3D; 7;
+      this.calendarWeekStart +&#x3D; oneWeek;
+    }
+    if (operator &#x3D;&#x3D;&#x3D; &#x27;-&#x27; &amp;&amp; this.calendarWeek &gt; 1) {
+      this.calendarWeek--;
+      this.startIndex -&#x3D; 7;
+      this.calendarWeekStart -&#x3D; oneWeek;
+    }
+  }
+
+  /**
+   * Method listening to the value of the filter and based on that value is filtering the rows accordingly
+   * @param event is the value of the selected option
+   */
+  filterLabels(event: any) {
+    if (event.target.value &#x3D;&#x3D; &#x27;all&#x27;) {
+      this.isFrontend &#x3D; true;
+      this.isBackend &#x3D; true;
+      this.isSecurity &#x3D; true;
+    }
+    if (event.target.value &#x3D;&#x3D; &#x27;frontend&#x27;) {
+      this.isFrontend &#x3D; true;
+      this.isBackend &#x3D; false;
+      this.isSecurity &#x3D; false;
+    }
+    if (event.target.value &#x3D;&#x3D; &#x27;backend&#x27;) {
+      this.isFrontend &#x3D; false;
+      this.isBackend &#x3D; true;
+      this.isSecurity &#x3D; false;
+    }
+    if (event.target.value &#x3D;&#x3D; &#x27;security&#x27;) {
+      this.isFrontend &#x3D; false;
+      this.isBackend &#x3D; false;
+      this.isSecurity &#x3D; true;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-toolbar class&#x3D;&quot;toolbar&quot; [class.toolbarDark]&#x3D;&quot;isDarkMode&quot;&gt;
+
+  &lt;select class&#x3D;&quot;ticketsFilter&quot; [class.ticketsFilterDark]&#x3D;&quot;isDarkMode&quot; matNativeControl required #clientValue
+    (change)&#x3D;&quot;filterLabels($event)&quot;&gt;
+    &lt;option value&#x3D;&quot;all&quot;&gt;All&lt;/option&gt;
+    &lt;option value&#x3D;&quot;frontend&quot;&gt;Frontend&lt;/option&gt;
+    &lt;option value&#x3D;&quot;backend&quot;&gt;Backend&lt;/option&gt;
+    &lt;option value&#x3D;&quot;security&quot;&gt;Security&lt;/option&gt;
+  &lt;/select&gt;
+
+
+  &lt;div class&#x3D;&quot;weekSelector&quot;&gt;
+    &lt;button class&#x3D;&quot;weekSelectorBtn&quot; (click)&#x3D;&quot;setWeekDate(&#x27;-&#x27;)&quot;&gt;
+      &lt;mat-icon&gt;keyboard_arrow_left&lt;/mat-icon&gt;
+    &lt;/button&gt;
+
+    &lt;span&gt;&amp;nbsp; Calendar week: {{ calendarWeek }} &amp;nbsp;&lt;/span&gt;
+
+    &lt;button class&#x3D;&quot;weekSelectorBtn&quot; (click)&#x3D;&quot;setWeekDate(&#x27;+&#x27;)&quot;&gt;
+      &lt;mat-icon&gt;keyboard_arrow_right&lt;/mat-icon&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;colorThemeSelector&quot;&gt;
+    &lt;mat-slide-toggle (change)&#x3D;&quot;onChange($event)&quot; color&#x3D;&quot;primary&quot;&gt;
+      &lt;span *ngIf&#x3D;&quot;isDarkMode&quot;&gt;Dark&lt;/span&gt;
+      &lt;span *ngIf&#x3D;&quot;!isDarkMode&quot;&gt;Light&lt;/span&gt;
+    &lt;/mat-slide-toggle&gt;
+  &lt;/div&gt;
+
+&lt;/mat-toolbar&gt;
+
+
+&lt;!-- App Calendar is binded here just for easy data syncronization between toolbar and calendar since they must work together
+I know there is a better way to sync data between components but for now I used this --&gt;
+&lt;app-calendar [class.darkCalendarBg]&#x3D;&quot;isDarkMode&quot; [calendarWeek]&#x3D;&quot;calendarWeek&quot; [calendarWeekStart]&#x3D;&quot;calendarWeekStart&quot;
+  [startIndex]&#x3D;&quot;startIndex&quot; [isFrontend]&#x3D;&quot;isFrontend&quot; [isBackend]&#x3D;&quot;isBackend&quot; [isSecurity]&#x3D;&quot;isSecurity&quot;
+  [isDarkMode]&#x3D;&quot;isDarkMode&quot;&gt;
+&lt;/app-calendar&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./toolbar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.toolbar {
+  display         : flex;
+  height          : max-content;
+  justify-content : space-between;
+  background-color: #3f51b5;
+  color           : white;
+  padding         : 16px;
+
+}
+
+.weekSelectorBtn {
+  background   : transparent;
+  border       : 2px solid white;
+  border-radius: 100%;
+  color        : white;
+  padding      : 5px;
+
+  &amp;:hover {
+    background-color: rgba(0, 0, 0, 0.356);
+    cursor          : pointer;
+  }
+}
+
+.ticketsFilter {
+
+  background-color: #3f51b5;
+  color           : white;
+  width           : 200px;
+  border          : 2px solid white;
+  padding         : 8px;
+  border-radius   : 5px;
+  font-size       : large;
+  cursor          : pointer;
+}
+
+.toolbarDark,
+.ticketsFilterDark {
+  background-color: var(--black-lighter);
+}
+
+@media(max-width: 800px) {
+  .toolbar {
+    flex-wrap      : wrap;
+    justify-content: space-around;
+
+  }
+
+  .weekSelectorBtn {
+    margin: 16px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar class="toolbar" [class.toolbarDark]="isDarkMode">  <select class="ticketsFilter" [class.ticketsFilterDark]="isDarkMode" matNativeControl required #clientValue    (change)="filterLabels($event)">    <option value="all">All</option>    <option value="frontend">Frontend</option>    <option value="backend">Backend</option>    <option value="security">Security</option>  </select>  <div class="weekSelector">    <button class="weekSelectorBtn" (click)="setWeekDate(\'-\')">      <mat-icon>keyboard_arrow_left</mat-icon>    </button>    <span>&nbsp; Calendar week: {{ calendarWeek }} &nbsp;</span>    <button class="weekSelectorBtn" (click)="setWeekDate(\'+\')">      <mat-icon>keyboard_arrow_right</mat-icon>    </button>  </div>  <div class="colorThemeSelector">    <mat-slide-toggle (change)="onChange($event)" color="primary">      <span *ngIf="isDarkMode">Dark</span>      <span *ngIf="!isDarkMode">Light</span>    </mat-slide-toggle>  </div></mat-toolbar><!-- App Calendar is binded here just for easy data syncronization between toolbar and calendar since they must work togetherI know there is a better way to sync data between components but for now I used this --><app-calendar [class.darkCalendarBg]="isDarkMode" [calendarWeek]="calendarWeek" [calendarWeekStart]="calendarWeekStart"  [startIndex]="startIndex" [isFrontend]="isFrontend" [isBackend]="isBackend" [isSecurity]="isSecurity"  [isDarkMode]="isDarkMode"></app-calendar></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'EditTicketComponent', 'selector': 'app-edit-ticket'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ToolbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToolbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

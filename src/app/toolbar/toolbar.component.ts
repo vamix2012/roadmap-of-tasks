@@ -19,13 +19,19 @@ export class ToolbarComponent {
   // value used for Darkmode switch
   isDarkMode: boolean = false;
 
-  //method to listen on change events
-  //change isDarkmode to true or false depending on switch state
-  onChange(state: any) {
+  /**
+   * method to listen on change events<br>
+   * change isDarkmode to true or false depending on switch state
+   * @param state is the state of the Theme switch "true" or "false"
+   */
+  onChange(state: any): void {
     this.isDarkMode = state.checked;
   }
 
-  //this method used to navigate trough Calendar Weeks
+  /**
+   * this method used to navigate trough Calendar Weeks
+   * @param operator value used to check if the calendar week must be increassed or decreased by one week
+   */
   setWeekDate(operator: string) {
     let oneWeek = 604800005;
     if (operator === '+' && this.calendarWeek < 52) {
@@ -40,7 +46,10 @@ export class ToolbarComponent {
     }
   }
 
-  //Method listening to the value of the filter and based on that value is filtering the rows accordingly
+  /**
+   * Method listening to the value of the filter and based on that value is filtering the rows accordingly
+   * @param event is the value of the selected option
+   */
   filterLabels(event: any) {
     if (event.target.value == 'all') {
       this.isFrontend = true;
