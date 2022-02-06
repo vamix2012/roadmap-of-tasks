@@ -2,6 +2,12 @@
 
 This application shows notes organized by categories on a timeline.
 
+## Useful Links
+
+[Live demo](https://lucian-cristian-toma.developerakademie.com)
+
+[Documentation (Compodoc)](https://lucian-cristian-toma.developerakademie.com/roadmap-documentation)
+
 ## Project description
 
 This project is developed using Angular, Angular Material, Compodoc for documentation.
