@@ -4,7 +4,7 @@ This application shows notes organized by categories on a timeline.
 
 ## Project description
 
-This project is developed using Angular, Angular Material.
+This project is developed using Angular, Angular Material, Compodoc for documentation.
 
 **Toolbar**
 
