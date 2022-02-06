@@ -1,6 +1,10 @@
 import { CalendarDataService } from './../services/calendar-data.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialog,
+} from '@angular/material/dialog';
 import { Note } from '../models/note.model';
 
 @Component({
@@ -26,7 +30,8 @@ export class EditTicketComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<EditTicketComponent>,
-    public dataService: CalendarDataService
+    public dataService: CalendarDataService,
+    public dialog: MatDialog
   ) {
     // Storing data recived from calendar compoment
     this.allNotes = data.allNotes;
@@ -113,6 +118,6 @@ export class EditTicketComponent implements OnInit {
    * Function used to close the dialog
    */
   closeDialog(): void {
-    this.dialogRef.close(this.allNotes);
+    this.dialogRef.close('close');
   }
 }
