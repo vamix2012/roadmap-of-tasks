@@ -118,6 +118,6 @@ export class EditTicketComponent implements OnInit {
    * Function used to close the dialog
    */
   closeDialog(): void {
-    this.dialogRef.close('close');
+    this.dialogRef.close();
   }
 }
