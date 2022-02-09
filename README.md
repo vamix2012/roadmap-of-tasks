@@ -12,7 +12,7 @@ This application shows notes organized by categories on a timeline.
 
 [Live demo Roadmap Alternate v3.0](https://lucian-cristian-toma.developerakademie.com/roadmap-v3/)
 
-This version has an alternate view unde Height of 800px and under 100px width and a better toolbar!
+This version has an alternate view under Height of 800px and under 1000px width. Alse has a better toolbar be sure to check it out!
 
 [Github Repo for Roadmap Alternate v3.0](https://github.com/vamix2012/roadmap-v3)
 
