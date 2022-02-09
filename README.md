@@ -4,9 +4,17 @@ This application shows notes organized by categories on a timeline.
 
 ## Useful Links
 
-[Live demo](https://lucian-cristian-toma.developerakademie.com)
+[Live demo Roadmap v2.0](https://lucian-cristian-toma.developerakademie.com)
 
 [Documentation (Compodoc)](https://lucian-cristian-toma.developerakademie.com/roadmap-documentation)
+
+---
+
+[Live demo Roadmap Alternate v3.0](https://lucian-cristian-toma.developerakademie.com/roadmap-v3/)
+
+This version has an alternate view unde Height of 800px and under 100px width and a better toolbar!
+
+[Github Repo for Roadmap Alternate v3.0](https://github.com/vamix2012/roadmap-v3)
 
 ## Project description
 
